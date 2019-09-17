@@ -1,0 +1,101 @@
+﻿<Window x:Class="PersonenDB_Bsp.NeuePersonDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonenDB_Bsp"
+        mc:Ignorable="d"
+        Title="Neue Person" Height="263.333" Width="256.97"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True">
+
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientStop Color="LightYellow" Offset="0"/>
+            <GradientStop Color="Orange" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Vorname:"
+                   VerticalAlignment="Center"
+                   Margin="0,0,5,0"/>
+        <TextBlock Text="Nachname:" 
+                   Grid.Row="1"
+                   VerticalAlignment="Center"
+                   Margin="0,0,5,0"/>
+        <TextBlock Text="Geburtsdatum:" 
+                   Grid.Row="2"
+                   VerticalAlignment="Center"
+                   Margin="0,0,5,0"/>
+        <TextBlock Text="Verheiratet:" 
+                   Grid.Row="3"/>
+        <TextBlock Text="Lieblingsfarbe:" 
+                   Grid.Row="4"
+                   VerticalAlignment="Center"
+                   Margin="0,0,5,0"/>
+        <TextBlock Text="Geschlecht:" 
+                   Grid.Row="5"
+                   VerticalAlignment="Top"
+                   Margin="0,0,5,0"/>
+
+        <TextBox x:Name="TbxVorname"
+                 Grid.Column="1"
+                 Margin="2"/>
+        <TextBox x:Name="TbxNachname"
+                 Grid.Column="1" Grid.Row="1"
+                 Margin="2"/>
+        <DatePicker x:Name="DprGeburtsdatum"
+                    Grid.Column="1" Grid.Row="2"
+                    Margin="2"/>
+        <CheckBox x:Name="ChbVerheiratet"
+                  Grid.Column="1" Grid.Row="3"
+                  Margin="2"
+                  VerticalAlignment="Center"/>
+        <ComboBox x:Name="CbbLieblingsfarbe"
+                  Grid.Column="1" Grid.Row="4"
+                  Margin="2"
+                  VerticalAlignment="Center">
+            <ComboBoxItem Content="Grün" Foreground="Green"/>
+            <ComboBoxItem Content="Blau" Foreground="Blue"/>
+            <ComboBoxItem Content="Gelb" Foreground="Yellow"/>
+            <ComboBoxItem Content="Rot" Foreground="Red"/>
+        </ComboBox>
+
+        <StackPanel Margin="2"
+                    Grid.Column="1" Grid.Row="5">
+            <RadioButton Content="M"
+                         GroupName="RbgGender"/>
+            <RadioButton Content="W"
+                         GroupName="RbgGender"/>
+            <RadioButton Content="D"
+                         GroupName="RbgGender"/>
+        </StackPanel>
+
+        <WrapPanel Grid.Row="6" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Right" Margin="0,5">
+            <Button x:Name="BtnOk"
+                    Content="OK"
+                    Width="80"/>
+            <Button x:Name="BtnAbbruch"
+                    Content="Abbrechen"
+                    Margin="5,0,0,0"
+                    Width="80"/>
+        </WrapPanel>
+
+    </Grid>
+
+</Window>

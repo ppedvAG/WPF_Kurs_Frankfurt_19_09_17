@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modul01_HalloWPF", "HalloWPF\Modul01_HalloWPF.csproj", "{81EE2E0C-75B9-4B19-88E6-EEEE658B7452}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modul02_Controls", "Controls\Modul02_Controls.csproj", "{F4B5988B-F2D0-427E-B70B-0D8CDFA00D2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modul03_Container", "Container\Modul03_Container.csproj", "{9A7774EE-B614-439A-8FB2-30BD50F211B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonenDB_Bsp", "PersonenDB_Bsp\PersonenDB_Bsp.csproj", "{553D4D4F-596C-4C3C-9D37-265723EFAC24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventRouting", "EventRouting\EventRouting.csproj", "{E8693429-34AC-4B53-AE3D-731F79A3E365}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animationen", "Animationen\Animationen.csproj", "{064A0EFA-E94A-4360-BCF2-7ECDC910140D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81EE2E0C-75B9-4B19-88E6-EEEE658B7452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81EE2E0C-75B9-4B19-88E6-EEEE658B7452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81EE2E0C-75B9-4B19-88E6-EEEE658B7452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81EE2E0C-75B9-4B19-88E6-EEEE658B7452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4B5988B-F2D0-427E-B70B-0D8CDFA00D2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B5988B-F2D0-427E-B70B-0D8CDFA00D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B5988B-F2D0-427E-B70B-0D8CDFA00D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B5988B-F2D0-427E-B70B-0D8CDFA00D2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A7774EE-B614-439A-8FB2-30BD50F211B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7774EE-B614-439A-8FB2-30BD50F211B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7774EE-B614-439A-8FB2-30BD50F211B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7774EE-B614-439A-8FB2-30BD50F211B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{553D4D4F-596C-4C3C-9D37-265723EFAC24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{553D4D4F-596C-4C3C-9D37-265723EFAC24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{553D4D4F-596C-4C3C-9D37-265723EFAC24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{553D4D4F-596C-4C3C-9D37-265723EFAC24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8693429-34AC-4B53-AE3D-731F79A3E365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8693429-34AC-4B53-AE3D-731F79A3E365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8693429-34AC-4B53-AE3D-731F79A3E365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8693429-34AC-4B53-AE3D-731F79A3E365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{064A0EFA-E94A-4360-BCF2-7ECDC910140D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{064A0EFA-E94A-4360-BCF2-7ECDC910140D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{064A0EFA-E94A-4360-BCF2-7ECDC910140D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{064A0EFA-E94A-4360-BCF2-7ECDC910140D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3A216C8-E383-4CE5-8C62-B0E5E0ADCEA6}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,30 @@
+﻿<Window x:Class="HalloWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HalloWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="225.68" Width="313.591">
+    <StackPanel x:Name="grdMain">
+        
+        <TextBlock Text="HalloWPF"/>
+        
+        <Button Content="Klick Mich"
+                Background="Coral"
+                Margin="10,20,5,30"/>
+
+        <Button>
+            <CheckBox Content="Hak mich ab"/>
+
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="LightBlue" Offset="0"/>
+                    <GradientStop Color="DarkBlue" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            
+        </Button>
+                
+    </StackPanel>
+</Window>
