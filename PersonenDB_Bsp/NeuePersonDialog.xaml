@@ -5,15 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonenDB_Bsp"
         mc:Ignorable="d"
-        Title="Neue Person" Height="263.333" Width="256.97"
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True">
-
-    <Window.Background>
-        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
-            <GradientStop Color="LightYellow" Offset="0"/>
-            <GradientStop Color="Orange" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
+        Title="Neue Person" Height="330" Width="316.97"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True"
+        Style="{StaticResource StyWnd}">
 
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
@@ -30,45 +24,29 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Vorname:"
-                   VerticalAlignment="Center"
-                   Margin="0,0,5,0"/>
+        <TextBlock Text="Vorname:"/>
         <TextBlock Text="Nachname:" 
-                   Grid.Row="1"
-                   VerticalAlignment="Center"
-                   Margin="0,0,5,0"/>
+                   Grid.Row="1"/>
         <TextBlock Text="Geburtsdatum:" 
-                   Grid.Row="2"
-                   VerticalAlignment="Center"
-                   Margin="0,0,5,0"/>
+                   Grid.Row="2"/>
         <TextBlock Text="Verheiratet:" 
                    Grid.Row="3"/>
         <TextBlock Text="Lieblingsfarbe:" 
-                   Grid.Row="4"
-                   VerticalAlignment="Center"
-                   Margin="0,0,5,0"/>
+                   Grid.Row="4"/>
         <TextBlock Text="Geschlecht:" 
                    Grid.Row="5"
-                   VerticalAlignment="Top"
-                   Margin="0,0,5,0"/>
+                   VerticalAlignment="Top"/>
 
         <TextBox x:Name="TbxVorname"
-                 Grid.Column="1"
-                 Margin="2"/>
+                 Grid.Column="1"/>
         <TextBox x:Name="TbxNachname"
-                 Grid.Column="1" Grid.Row="1"
-                 Margin="2"/>
+                 Grid.Column="1" Grid.Row="1"/>
         <DatePicker x:Name="DprGeburtsdatum"
-                    Grid.Column="1" Grid.Row="2"
-                    Margin="2"/>
+                    Grid.Column="1" Grid.Row="2"/>
         <CheckBox x:Name="ChbVerheiratet"
-                  Grid.Column="1" Grid.Row="3"
-                  Margin="2"
-                  VerticalAlignment="Center"/>
+                  Grid.Column="1" Grid.Row="3"/>
         <ComboBox x:Name="CbbLieblingsfarbe"
-                  Grid.Column="1" Grid.Row="4"
-                  Margin="2"
-                  VerticalAlignment="Center">
+                  Grid.Column="1" Grid.Row="4">
             <ComboBoxItem Content="Grün" Foreground="Green"/>
             <ComboBoxItem Content="Blau" Foreground="Blue"/>
             <ComboBoxItem Content="Gelb" Foreground="Yellow"/>
@@ -88,12 +66,9 @@
         <WrapPanel Grid.Row="6" Grid.ColumnSpan="2"
                    HorizontalAlignment="Right" Margin="0,5">
             <Button x:Name="BtnOk"
-                    Content="OK"
-                    Width="80"/>
+                    Content="OK"/>
             <Button x:Name="BtnAbbruch"
-                    Content="Abbrechen"
-                    Margin="5,0,0,0"
-                    Width="80"/>
+                    Content="Abbrechen"/>
         </WrapPanel>
 
     </Grid>

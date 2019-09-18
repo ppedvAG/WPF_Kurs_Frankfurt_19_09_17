@@ -1,0 +1,31 @@
+﻿<Window x:Class="Bindings.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bindings"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="289.685" Width="312.134">
+    <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal">
+            <Slider Width="150" Minimum="0" Maximum="100" x:Name="SdrEins" Value="20"/>
+            <TextBox Width="50">
+                <TextBox.Text>
+                    <Binding ElementName="SdrEins" Path="Value" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
+                </TextBox.Text>
+            </TextBox>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal">
+            <Slider Width="150" Minimum="0" Maximum="100" x:Name="SdrZwei" Value="20"/>
+            <TextBox Width="50" Text="{Binding ElementName=SdrZwei, Path=Value, Mode=OneWay}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Slider Width="150" Minimum="0" Maximum="100" x:Name="SdrDrei" Value="20"/>
+            <TextBox Width="50" Text="{Binding ElementName=SdrDrei, Path=Value, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"
+                     x:Name="TbxDrei"/>
+            <Button Content="Übernehmen" Click="Button_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
