@@ -9,6 +9,14 @@
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True"
         Style="{StaticResource StyWnd}">
 
+    <Window.Resources>
+        <ObjectDataProvider x:Key="OdpColorsProperties"
+                            ObjectInstance="{x:Type Colors}"
+                            MethodName="GetProperties"/>
+
+        <local:EnumToBoolConverter x:Key="enum2bool"/>
+    </Window.Resources>
+
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -38,37 +46,55 @@
                    VerticalAlignment="Top"/>
 
         <TextBox x:Name="TbxVorname"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 Text="{Binding Vorname, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox x:Name="TbxNachname"
-                 Grid.Column="1" Grid.Row="1"/>
+                 Grid.Column="1" Grid.Row="1"
+                 Text="{Binding Nachname, UpdateSourceTrigger=PropertyChanged}"/>
         <DatePicker x:Name="DprGeburtsdatum"
-                    Grid.Column="1" Grid.Row="2"/>
+                    Grid.Column="1" Grid.Row="2"
+                    SelectedDate="{Binding Geburtsdatum}"/>
         <CheckBox x:Name="ChbVerheiratet"
-                  Grid.Column="1" Grid.Row="3"/>
+                  Grid.Column="1" Grid.Row="3"
+                  IsChecked="{Binding Verheiratet}"/>
         <ComboBox x:Name="CbbLieblingsfarbe"
-                  Grid.Column="1" Grid.Row="4">
-            <ComboBoxItem Content="Grün" Foreground="Green"/>
-            <ComboBoxItem Content="Blau" Foreground="Blue"/>
-            <ComboBoxItem Content="Gelb" Foreground="Yellow"/>
-            <ComboBoxItem Content="Rot" Foreground="Red"/>
+                  Grid.Column="1" Grid.Row="4"
+                  ItemsSource="{Binding Source={StaticResource OdpColorsProperties}}"
+                  SelectedValue="{Binding Lieblingsfarbe}"
+                  SelectedValuePath="Name">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="20" Margin="5,0">
+                            <Rectangle Fill="{Binding Name}" Width="20" Height="20"/>
+                        </Border>
+                        <TextBlock Text="{Binding Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
         </ComboBox>
 
         <StackPanel Margin="2"
                     Grid.Column="1" Grid.Row="5">
             <RadioButton Content="M"
-                         GroupName="RbgGender"/>
+                         GroupName="RbgGender"
+                         IsChecked="{Binding Geschlecht, Converter={StaticResource enum2bool}, ConverterParameter={x:Static local:Gender.Männlich}}"/>
             <RadioButton Content="W"
-                         GroupName="RbgGender"/>
+                         GroupName="RbgGender"
+                         IsChecked="{Binding Geschlecht, Converter={StaticResource enum2bool}, ConverterParameter={x:Static local:Gender.Weiblich}}"/>
             <RadioButton Content="D"
-                         GroupName="RbgGender"/>
+                         GroupName="RbgGender"
+                         IsChecked="{Binding Geschlecht, Converter={StaticResource enum2bool}, ConverterParameter={x:Static local:Gender.Divers}}"/>
         </StackPanel>
 
         <WrapPanel Grid.Row="6" Grid.ColumnSpan="2"
                    HorizontalAlignment="Right" Margin="0,5">
             <Button x:Name="BtnOk"
-                    Content="OK"/>
+                    Content="OK"
+                    Click="BtnOk_Click"/>
             <Button x:Name="BtnAbbruch"
-                    Content="Abbrechen"/>
+                    Content="Abbrechen"
+                    Click="BtnAbbruch_Click"/>
         </WrapPanel>
 
     </Grid>
