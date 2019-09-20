@@ -16,14 +16,19 @@
                 <Rectangle.Fill>
                     <Binding ElementName="SdrRot" Path="Value">
                         <Binding.Converter>
+                            <!--Wenn eine Bindung an eine Property durchgeführt werden soll, welche einen anderen Datentyp liefert,
+                            als ihn die Ziel-Property erwartet (oder ein Wert vor der Übergabe manipuliert werden soll), muss in den 
+                            Ressourcen ein Converter eingebunden werden, welcher die Typumwandlung übernimmt. Anstelle einer Bereitstellung über die 
+                            Ressourcen, kann der Converter auch direkt in dem Binding-Objekt instanziert werden-->
                             <local:DoubleToBrushConverter/>
                         </Binding.Converter>
                     </Binding>
                 </Rectangle.Fill>
             </Rectangle>
         </Border>
-        <Separator Margin="5"/>
         
+        <Separator Margin="5"/>
+        <!--MultiValueConverter-->
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="R:" Width="10" Foreground="Red"/>
             <Slider Minimum="0" Maximum="255" Width="256" Value="255"
@@ -75,6 +80,8 @@
                         <MultiBinding.Converter>
                             <local:DoublesToBrushConverter/>
                         </MultiBinding.Converter>
+                        <!--Wenn mehrere Quellen zu an dasselbe Ziel gebunden werden, muss ein MultiBinding etabliert werden.
+                        Der Converter erhält die Werte der Bindungen in der Reihenfolge, in wechler sie in XAML deklaiert wurden.-->
                         <Binding ElementName="SdrRed" Path="Value"/>
                         <Binding ElementName="SdrGreen" Path="Value"/>
                         <Binding ElementName="SdrBlue" Path="Value"/>

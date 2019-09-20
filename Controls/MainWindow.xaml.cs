@@ -27,7 +27,17 @@ namespace Controls
 
         private void BtnKlickMich_Click(object sender, RoutedEventArgs e)
         {
+            //Änderung der Hintergrundfarbe des Fensters
+            WndMain.Background = new SolidColorBrush(Colors.Green);
+            //Ausgabe einer MessageBox mit dem Wert des Sliders
             MessageBox.Show(SdrBeispiel.Value.ToString());
+        }
+        private void Beenden_Click(object sender, RoutedEventArgs e)
+        {
+            //Schließen des aktuellen Fensters (wenn dies das letzte geöffnete Fenster der Applikation ist, wird die gesamte App geschlossen)
+            this.Close();
+            //Direktes Beenden der App (inkl. aller Fenster)
+            Application.Current.Shutdown();
         }
     }
 }

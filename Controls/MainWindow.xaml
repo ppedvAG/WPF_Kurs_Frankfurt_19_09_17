@@ -5,13 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="598.2" Width="332.168">
+        Title="MainWindow" Height="598.2" Width="332.168"
+        x:Name="WndMain">
     <StackPanel>
-
+        <!--Labels besitzen, wie die meisten Controls und alle Container eine Content-Eigenschaft, welche
+        mit weiteren Containern/Controls befüllt werden können (Auch hier darf nur ein Root-Element vohanden sein).-->
         <Label Content="Label"
                Foreground="Red"
                Background="Yellow"/>
 
+        <!--TextBlöcke sind Labels, welche auf Strings spezialisiert sind. Sie besitzen statt der
+            Content- die Text-Property-->
         <TextBlock Text="TextBlock dddddddddddddddd dddddddddddddddddddd ddddddddddddddd"
                    TextWrapping="Wrap"/>
 
@@ -29,6 +33,8 @@
                  AcceptsReturn="True"
                  AcceptsTab="True"/>
 
+        <!--ItemControls wie ComboBoxen oder ListViews können über die ItemsSource-Property mit Daten 
+        oder in XAML mit Items mit Content-Property bestückt werden-->
         <ComboBox IsEditable="True">
             <ComboBoxItem Content="Item1"/>
             <ComboBoxItem Content="Element2"/>
@@ -38,6 +44,7 @@
                   IsThreeState="True"
                   IsChecked="{x:Null}"/>
 
+        <!--RadioButtons können einer Group zugeordnet werden, wodurch nur einer der Buttons angewählt sein darf-->
         <RadioButton Content="Radiobutton1"
                      GroupName="gruppe1"/>
         <RadioButton Content="Radiobutton2"
@@ -58,15 +65,19 @@
                      Height="20"
                      IsIndeterminate="False"/>
 
+        <!--Menüs, wie ein Fenster-Menü (Menu) oder ein Kontext-Menü (ContextMenu) werden mit MenuItems befüllt.
+        Diese können ihrerseits weitere MenuItems aufnehmen, wodurch sich dann Untermenüs bilden-->
         <Menu>
             <MenuItem Header="Datei">
                 <MenuItem Header="Speichern">
                     <MenuItem Header="Speichern Als"/>
                     <TextBox Width="50"/>
+                    <MenuItem Header="Beenden" Click="Beenden_Click"/>
                 </MenuItem>
             </MenuItem>
         </Menu>
 
+        <!--Ribbon-NS: System.Windows.Controls.Ribbon-->
         <Ribbon>
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu>

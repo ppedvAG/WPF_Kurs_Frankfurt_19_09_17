@@ -12,12 +12,14 @@
         x:Name="WndDetailView">
 
     <Window.Resources>
+        <!--Objekt zur Bereitstellung der Properties der Colors-Klasse (vordefinierte Farben)-->
         <ObjectDataProvider x:Key="OdpColorsProperties"
                             ObjectInstance="{x:Type Colors}"
                             MethodName="GetProperties"/>
 
         <main:EnumToBoolConverter x:Key="enum2bool"/>
 
+        <!--Error-Template für den Fall einer fehlerhaften Eingabe in einzelnen Controls-->
         <ControlTemplate x:Key="CtpError">
             <StackPanel Orientation="Horizontal">
                 <Border BorderBrush="Red" BorderThickness="1" x:Name="BdrAep">
@@ -37,6 +39,7 @@
     </Window.Resources>
 
     <Grid Margin="10">
+        <!--Grid-Spalten- und Reihen-Definitionen-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -51,6 +54,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <!--linke Spalte (nur statische Stringanzeigen)-->
         <TextBlock Text="Vorname:"/>
         <TextBlock Text="Nachname:" 
                    Grid.Row="1"/>
@@ -64,6 +68,9 @@
                    Grid.Row="5"
                    VerticalAlignment="Top"/>
 
+        <!--rechte Spalte (Eingabefelder)
+        Bindungen erfolgen an Eigenschaften (z.B. Vorname) einer Property (AktuellePerson) aus dem DataContext.
+        Zur Verwendung des Validierungs-Interfaces wurde ValidatesOnDataErrors gesetzt.-->
         <TextBox x:Name="TbxVorname"
                  Grid.Column="1"
                  Text="{Binding AktuellePerson.Vorname, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
@@ -83,6 +90,10 @@
                   Grid.Column="1" Grid.Row="3"
                   IsChecked="{Binding AktuellePerson.Verheiratet}"/>
 
+        <!--Die ComboBox holt sich die Farben über den oben definierten ObjektDataProvider, welcher hier als
+        ItemSource gesetzt wurde. Mittels der Eigenschaft SelectedPathValue kann definiert werden, welche die
+        Eigenschaften des ODP in der Auswahl verwendet werden soll. Beachte, dass auch das Rechteck und die 
+        Textbox aus dem ItemTemplate an diese ausgewählte Eigenschaft gebunden sind.-->
         <ComboBox x:Name="CbbLieblingsfarbe"
                   Grid.Column="1" Grid.Row="4"
                   ItemsSource="{Binding Source={StaticResource OdpColorsProperties}}"
@@ -90,6 +101,7 @@
                   Validation.ErrorTemplate="{StaticResource CtpError}"
                   SelectedValuePath="Name">
             <ComboBox.ItemTemplate>
+                <!--Diese ItemTemplate stellt vor dem entsprechenden Farbnamen ein Recteck in dieser Farbe dar-->
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="20" Margin="5,0">
@@ -101,6 +113,8 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
+        <!--Die RadioButtons übermitteln an den Konverter den ihnen zugeteilten Enumerator-Zustand über den 
+        ConverterParameter. Dadurch muss der Konverter diese nur noch mit der ausgewählten Eigenschaft vergleichen.-->
         <StackPanel Margin="2"
                     Grid.Column="1" Grid.Row="5">
             <RadioButton Content="M"
@@ -116,10 +130,14 @@
 
         <WrapPanel Grid.Row="6" Grid.ColumnSpan="2"
                    HorizontalAlignment="Right" Margin="0,5">
+            <!--Den Buttons wird als CommandParameter das Fenster übergeben, damit im ViewModel dessen Close-Befehl verwendet werden kann-->
             <Button x:Name="BtnOk"
                     Content="OK"
                     Command="{Binding OkCmd}"
                     CommandParameter="{Binding ElementName=WndDetailView}">
+                <!--In diesem ButtonStyle wurden diverse Trigger definiert. Diese sorgen dafür, dass der Button erst verfügbar
+                    wird, wenn keines der obigen Elemente eine fehlerhafte Validierung meldet. Dies könnte aud durch die CanExecute-
+                    Methode des Commands gesteuert werden, ist auf diese Weise jedoch einfacher-->
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Width" Value="120"/>

@@ -9,21 +9,28 @@ using System.Windows.Media;
 
 namespace MVVM_PersonenDB_Bsp.Model
 {
+    //Im Model-Teil eines MVVM-Programms werden die Buisness-Klassen abgelegt. Diese Klassen dürfen keine Referenzen auf die anderen MVVM-Teile haben.
+    //Model-Klasse 'Person' mit dem IDataErrorInfo-Interface zur Validierung der Benutzereingaben bezüglich der Klassenproperties
     public class Person : IDataErrorInfo
     {
         #region Statische Member
+        //Statische Listenproperty zum Ablegen der geladenen Personen (ObservableCollection, damit die GUI über Veränderungen innerhalb der Liste
+        //informiert wird)
         public static ObservableCollection<Person> Personenliste { get; set; }
 
+        //Methode, welche Bsp-Daten generiert und damit den Zugriff auf eine Datenbank simuliert
         public static void LadePersonenAusDb()
         {
             Personenliste = new ObservableCollection<Person>();
             Personenliste.Add(new Person() { Vorname = "Otto", Nachname = "Müller", Geburtsdatum = new DateTime(2002, 5, 12), Verheiratet = true, Lieblingsfarbe = Colors.Blue, Geschlecht = Gender.Männlich });
             Personenliste.Add(new Person() { Vorname = "Maria", Nachname = "Schmidt", Geburtsdatum = new DateTime(1988, 7, 23), Verheiratet = true, Lieblingsfarbe = Colors.Green, Geschlecht = Gender.Weiblich });
             Personenliste.Add(new Person() { Vorname = "Johannes", Nachname = "Fischer", Geburtsdatum = new DateTime(1973, 12, 7), Verheiratet = false, Lieblingsfarbe = Colors.Yellow, Geschlecht = Gender.Divers });
-        } 
+        }
         #endregion
 
         #region Properties
+        //Felder und Properties der 'Person'-Klasse
+
         private string vorname;
         public string Vorname
         {
@@ -66,9 +73,12 @@ namespace MVVM_PersonenDB_Bsp.Model
             set { geschlecht = value; }
         }
         #endregion
-        
+
         #region DataErrorInfo
+        //Durch das Interface geforderte Properties
         public string Error => String.Empty;
+
+        //Property, welche die Validierungsfehler und deren Fehlermeldungen beinhaltet
         public string this[string columnName]
         {
             get
@@ -95,14 +105,18 @@ namespace MVVM_PersonenDB_Bsp.Model
             }
         }
         #endregion
-        
+
         #region Konstruktoren
+        //Parameterloser Standartkonstruktor, welcher die leeren 'Person'-Objekte auf einen Startzustand setzt
         public Person()
         {
+            //Die 'Gerburtsdatum'-Property wird auf das aktuelle Datum gesetzt, damit der Benutzer innerhalb der Auswahlmaske nicht so viel suchen muss
             Geburtsdatum = DateTime.Now;
+            //Die String-Eigenschaften werden auf "" initialisiert, um GUI-Fehler zu vermeiden
             Vorname = Nachname = "";
         }
 
+        //Kopierkonstruktor, welcher eine 1-zu-1-Kopie eines übergebenen 'Person'-Objekts erzeugt
         public Person(Person altePerson)
         {
             Vorname = altePerson.Vorname;

@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MeinUserControl"
              mc:Ignorable="d" Height="224.276" Width="327.591">
+    <!--UserControls werden verwendetg um eigene Control-Elemente zu erstellen und zu versiegeln, so dass der Benutzer die Properties
+    der Teilelemente nicht mehr direkt verwendet kann.-->
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="R:" Width="10" Foreground="Red"/>

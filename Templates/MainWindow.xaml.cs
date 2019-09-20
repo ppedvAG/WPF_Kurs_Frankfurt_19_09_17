@@ -25,13 +25,17 @@ namespace Templates
         {
             InitializeComponent();
 
+            //Setzen des DataContext des StackPanels auf dieses Objekt (Einfache Bindungen zu Properties in dieser Datei möglich)
             SplDataTemplate.DataContext = this;
 
+            //Erstellen von Bsp-Daten
             Personenliste.Add(new Person() { Vorname = "Jürgen", Nachname = "Meier", Alter = 23 });
             Personenliste.Add(new Person() { Vorname = "Anna", Nachname = "Müller", Alter = 45 });
             Personenliste.Add(new Person() { Vorname = "Marcel", Nachname = "Fischer", Alter = 36 });
         }
 
+        //Properties vom Typ ObservableCollection informieren die GUI automatisch über Veränderungen (z.B. neuer Listeneintrag). Sie eignen sich besonders gut
+        //für eine Bindung an ein ItemControl (z.B. ComboBox, ListBox, DataGrid, ...)
         public ObservableCollection<Person> Personenliste { get; set; } = new ObservableCollection<Person>();
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,11 +45,13 @@ namespace Templates
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            //Erhöhung des Alters der Person im DataContextes des StackPanels
             (SplMaria.DataContext as Person).Alter++;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            //Hinzufügen einer neuen Person
             Personenliste.Add(new Person() { Vorname = "Susanne", Nachname = "Schmidt", Alter = 12 });
         }
     }

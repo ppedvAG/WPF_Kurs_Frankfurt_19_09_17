@@ -16,6 +16,8 @@
                     <Setter Property="Foreground" Value="Green"/>
                     <Setter Property="Text" Value="TRUE"/>
                     <Style.Triggers>
+                        <!--Mittels Trigger kann das Verhalten/Aussehen von Objekten unter bestimmten Umständen geändert werden-->
+                        <!--Der DataTrigger reagiert auf eine Veränderung einer WPF- oder .NET-Property>-->
                         <DataTrigger Value="False" Binding="{Binding BoolValue}">
                             <Setter Property="Foreground" Value="Red"/>
                             <Setter Property="Text" Value="FALSE"/>
@@ -23,7 +25,11 @@
                     </Style.Triggers>
                 </Style>
             </TextBlock.Style>
+          <!--Andere Triggerarten sind
+        EventTrigger: Dieser reagiert auf eine geworfenes RoutedEvent
+        PropertyTrigger: Dieser reagiert auf eine veränderte WPF-Property (nicht bei .NET-Properties anwendbar-->
         </TextBlock>
+        <!--Einbindung des UserControls aus Modul 12-->
         <uc:ColorPicker Margin="10" x:Name="CpBackground"/>
     </StackPanel>
 </Window>

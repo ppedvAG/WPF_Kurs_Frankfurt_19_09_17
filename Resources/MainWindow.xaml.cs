@@ -27,6 +27,7 @@ namespace Resources
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //Manipulation einer Ressource über deren Container und Key (Objekte, welche dynamisch angebunden sind, übernehmen sofort die Veränderung)
             SplMain.Resources["FontSize"] = 50.0;
         }
     }
